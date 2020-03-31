@@ -231,7 +231,7 @@ def suppression_utilisateurs_bdd():
             userBDDDelete.serveurs.clear()
             db.session.delete(userBDDDelete)
             db.session.commit()
-        if result['removeDossier']==True:
+        if ('removeDossier'in result) and (result['removeDossier']=='True'):
             suppresion_dossier_serveurs(uid_suppr)
     return redirect(url_for('creation_utilisateurs'))
 
